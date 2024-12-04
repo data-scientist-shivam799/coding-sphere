@@ -1,0 +1,11 @@
+service: api-service
+
+provider:
+  name: aws
+  runtime: python3.8
+functions:
+  app:
+    handler: app.main
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
